@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>BHCrypt</title>
+        <title>Our Story</title>
 
         <!-- External Libraries -->
         <link
@@ -311,54 +311,40 @@
         <!-- Hero Section -->
         <section class="hero" id="home">
             <div class="hero-content">
-                <h1 data-aos="fade-up">BHCrypt</h1>
+                <h1 data-aos="fade-up">Our Journey</h1>
                 <p data-aos="fade-up" data-aos-delay="200">
-                    Explore our journey through the world of cybersecurity
+                    Welcome to the "Our Story" section, where we share the
+                    inspiration and mission behind the Cybersecurity Learning
+                    platform.
+                </p>
+                <p data-aos="fade-up" data-aos-delay="200">
+                    Our journey began with a simple idea: to make cybersecurity
+                    education accessible to everyone. We saw a growing need for
+                    knowledgeable professionals in the field and wanted to
+                    bridge the gap between curiosity and expertise.
+                </p>
+                <p data-aos="fade-up" data-aos-delay="200">
+                    Through collaboration with experts and continuous feedback
+                    from our users, we strive to improve and expand our
+                    offerings, ensuring that learners have the best resources at
+                    their fingertips.
+                </p>
+                <br />
+                <h2>Our Mission</h2>
+                <p>
+                    At Cybersecurity Learning, we believe in empowering
+                    individuals with knowledge. Our goal is to create a
+                    comprehensive platform that offers a variety of resources to
+                    learn about cybersecurity, catering to both beginners and
+                    advanced learners.
                 </p>
             </div>
-        </section>
-
-        <!-- Registration Form -->
-        <section class="registration-form" data-aos="fade-up">
-            <h2>Register Now</h2>
-            <form id="registerForm">
-                <div class="form-group">
-                    <label for="firstName">First Name</label>
-                    <input type="text" id="firstName" required />
-                    <div class="error-message"></div>
-                </div>
-                <div class="form-group">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" id="lastName" required />
-                    <div class="error-message"></div>
-                </div>
-                <div class="form-group">
-                    <label for="mobile">Mobile Number</label>
-                    <input type="tel" id="mobile" required />
-                    <div class="error-message"></div>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" required />
-                    <div class="error-message"></div>
-                </div>
-                <button type="submit" class="submit-btn">Register</button>
-            </form>
         </section>
 
         <!-- Theme Toggle -->
         <button class="theme-toggle">
             <i class="fas fa-moon"></i>
         </button>
-
-        <!-- Cookie Consent -->
-        <div class="cookie-consent">
-            <p>
-                We use cookies to enhance your experience. By continuing to
-                visit this site you agree to our use of cookies.
-            </p>
-            <button id="acceptCookies">Accept</button>
-        </div>
 
         <script>
             // Initialize AOS
@@ -425,64 +411,8 @@
                 retina_detect: true
             });
 
-            // Form Validation
-            const form = document.getElementById('registerForm');
-            const firstName = document.getElementById('firstName');
-            const lastName = document.getElementById('lastName');
-            const mobile = document.getElementById('mobile');
-            const email = document.getElementById('email');
 
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                validateForm();
-            });
 
-            function validateForm() {
-                // First Name Validation
-                if (!validator.isLength(firstName.value.trim(), { min: 2 }) || /^\s*$/.test(firstName.value)) {
-                    showError(firstName, 'First name must be at least 2 characters and cannot be empty.');
-                    return;
-                }
-
-                // Last Name Validation
-                if (!validator.isLength(lastName.value.trim(), { min: 2 }) || /^\s*$/.test(lastName.value)) {
-                    showError(lastName, 'Last name must be at least 2 characters and cannot be empty.');
-                    return;
-                }
-
-                // Mobile Validation: Must be exactly 8 digits
-                if (!/^\d{8}$/.test(mobile.value)) {
-                    showError(mobile, 'Mobile number must be exactly 8 digits.');
-                    return;
-                }
-
-                // Email Validation
-                if (!validator.isEmail(email.value)) {
-                    showError(email, 'Please enter a valid email address.');
-                    return;
-                }
-
-                // If all validations pass
-                saveUserData();
-                form.reset();
-                alert('Registration successful!');
-            }
-
-            function showError(input, message) {
-                const formGroup = input.parentElement;
-                const error = formGroup.querySelector('.error-message');
-                error.textContent = message;
-            }
-
-            function saveUserData() {
-                const userData = {
-                    firstName: firstName.value,
-                    lastName: lastName.value,
-                    mobile: mobile.value,
-                    email: email.value
-                };
-                localStorage.setItem('userData', JSON.stringify(userData));
-            }
 
             // Theme Toggle
             const themeToggle = document.querySelector('.theme-toggle');
@@ -499,21 +429,6 @@
             window.addEventListener('load', () => {
                 const loader = document.querySelector('.loader');
                 loader.classList.add('hidden');
-            });
-
-            // Cookie Consent
-            const cookieConsent = document.querySelector('.cookie-consent');
-            const acceptCookies = document.getElementById('acceptCookies');
-
-            if (!localStorage.getItem('cookiesAccepted')) {
-                setTimeout(() => {
-                    cookieConsent.classList.add('show');
-                }, 2000);
-            }
-
-            acceptCookies.addEventListener('click', () => {
-                localStorage.setItem('cookiesAccepted', 'true');
-                cookieConsent.classList.remove('show');
             });
 
             // GSAP Animations
