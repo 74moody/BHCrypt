@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Ethical Hacking</title>
 
-        <!-- External Libraries -->
+        <link  rel="stylesheet" href="./css/style.css">
         <link
             href="https://unpkg.com/aos@2.3.1/dist/aos.css"
             rel="stylesheet"
@@ -20,271 +20,6 @@
             rel="stylesheet"
         />
 
-        <style>
-            :root {
-                --primary-light: #f0f4f8;
-                --text-light: #2d3748;
-                --accent-light: #4299e1;
-                --primary-dark: #000000;
-                --text-dark: #e2e8f0;
-                --accent-dark: #63b3ed;
-                --transition: all 0.3s ease-in-out;
-            }
-
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-                font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            }
-
-            body {
-                background: var(--primary-light);
-                color: var(--text-light);
-                transition: var(--transition);
-                overflow-x: hidden;
-            }
-
-            body.dark-mode {
-                background: var(--primary-dark);
-                color: var(--text-dark);
-            }
-
-            /* Navigation Styles */
-            .navbar {
-                position: fixed;
-                top: 0;
-                width: 100%;
-                padding: 1.5rem;
-                background: rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-                z-index: 1000;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .nav-links {
-                display: flex;
-                gap: 2rem;
-            }
-
-            .nav-links a {
-                color: inherit;
-                text-decoration: none;
-                font-weight: 500;
-                position: relative;
-                padding: 0.5rem 1rem;
-                transition: var(--transition);
-            }
-
-            .nav-links a::after {
-                content: "";
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background: var(--accent-light);
-                transition: var(--transition);
-            }
-
-            .nav-links a:hover::after {
-                width: 100%;
-            }
-
-            /* Hero Section */
-            .hero {
-                height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: relative;
-                overflow: hidden;
-            }
-
-            .hero-content {
-                text-align: center;
-                z-index: 2;
-            }
-
-            .hero h1 {
-                font-size: 4rem;
-                margin-bottom: 1rem;
-                opacity: 0;
-                transform: translateY(30px);
-                animation: fadeUp 1s forwards;
-            }
-
-            @keyframes fadeUp {
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-
-            /* Registration Form */
-            .registration-form {
-                background: rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-                padding: 2rem;
-                border-radius: 20px;
-                box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-                max-width: 500px;
-                margin: 2rem auto;
-            }
-
-            .form-group {
-                margin-bottom: 1.5rem;
-            }
-
-            .form-group label {
-                display: block;
-                margin-bottom: 0.5rem;
-                font-weight: 500;
-            }
-
-            .form-group input {
-                width: 100%;
-                padding: 0.8rem;
-                border: none;
-                border-radius: 10px;
-                background: rgba(255, 255, 255, 0.05);
-                color: inherit;
-                transition: var(--transition);
-            }
-
-            .form-group input:focus {
-                outline: none;
-                box-shadow: 0 0 0 2px var(--accent-light);
-            }
-
-            .error-message {
-                color: #e53e3e;
-                font-size: 0.875rem;
-                margin-top: 0.5rem;
-            }
-
-            /* Theme Toggle */
-            .theme-toggle {
-                position: fixed;
-                bottom: 2rem;
-                right: 2rem;
-                background: rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-                border: none;
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.5rem;
-                transition: var(--transition);
-            }
-
-            .theme-toggle:hover {
-                transform: scale(1.1);
-            }
-
-            /* Particles Background */
-            #particles-js {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: -1;
-            }
-
-            /* Cards Section */
-            .cards-container {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 2rem;
-                padding: 4rem 2rem;
-            }
-
-            .card {
-                background: rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-                border-radius: 20px;
-                padding: 2rem;
-                transition: var(--transition);
-                transform-style: preserve-3d;
-                perspective: 1000px;
-            }
-
-            .card:hover {
-                transform: translateY(-10px) rotateX(10deg);
-            }
-
-            /* Animations */
-            @keyframes float {
-                0%,
-                100% {
-                    transform: translateY(0);
-                }
-                50% {
-                    transform: translateY(-20px);
-                }
-            }
-
-            .floating {
-                animation: float 6s ease-in-out infinite;
-            }
-
-            /* Responsive Design */
-            @media (max-width: 768px) {
-                .hero h1 {
-                    font-size: 2.5rem;
-                }
-
-                .nav-links {
-                    display: none;
-                }
-
-                .cards-container {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            /* Loading Animation */
-            .loader {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: var(--primary-light);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 9999;
-            }
-
-            .loader.hidden {
-                display: none;
-            }
-
-            /* Cookie Consent */
-            .cookie-consent {
-                position: fixed;
-                bottom: 0;
-                width: 100%;
-                background: rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-                padding: 1rem;
-                text-align: center;
-                transform: translateY(100%);
-                transition: var(--transition);
-            }
-
-            .cookie-consent.show {
-                transform: translateY(0);
-            }
-        </style>
     </head>
     <body>
         <!-- Loader -->
@@ -308,7 +43,6 @@
             </div>
         </nav>
 
-        <!-- Hero Section -->
         <section class="hero" id="home">
             <div class="hero-content">
                 <h1 data-aos="fade-up">Ethical Hackingy</h1>
@@ -319,7 +53,10 @@
                 </p>
             </div>
         </section>
-        <section>
+
+        <div class="container">
+
+        <section class="c">
             <h2>Step 1: Understand the Basics of Ethical Hacking</h2>
             <p>
                 Start by learning what ethical hacking is, including its
@@ -327,12 +64,11 @@
                 Familiarize yourself with the legal and ethical aspects.
             </p>
             <iframe
-                src="https://www.youtube.com/embed/0r8tCwV9mD4"
-                allowfullscreen
+            src="https://www.youtube.com/embed/AnwgxRtWXLI?si=qz-T5w8v6TG9t8pS"                allowfullscreen
             ></iframe>
         </section>
 
-        <section>
+        <section class="c">
             <h2>Step 2: Learn About Networking and Security Fundamentals</h2>
             <p>
                 Understanding networking concepts and security fundamentals is
@@ -340,12 +76,11 @@
                 protocols.
             </p>
             <iframe
-                src="https://www.youtube.com/embed/ZzDq1C5qXqE"
-                allowfullscreen
+            src="https://www.youtube.com/embed/K1bMSPje6pw?si=OR9OKriPCW5wLfE1"                 allowfullscreen
             ></iframe>
         </section>
 
-        <section>
+        <section class="c">
             <h2>Step 3: Get Hands-On with Tools and Techniques</h2>
             <p>
                 Familiarize yourself with popular ethical hacking tools like
@@ -353,12 +88,12 @@
                 essential for mastering these tools.
             </p>
             <iframe
-                src="https://www.youtube.com/embed/6J3kG7L1WgM"
+            src="https://www.youtube.com/embed/g9OGphrEMb0?si=V21Ah0_VEbLXYeXU" 
                 allowfullscreen
             ></iframe>
         </section>
 
-        <section>
+        <section class="c">
             <h2>Step 4: Enroll in Ethical Hacking Courses</h2>
             <p>
                 Consider taking online courses from platforms like Cybrary,
@@ -366,26 +101,62 @@
                 Ethical Hacker) can also enhance your skills and credibility.
             </p>
             <iframe
-                src="https://www.youtube.com/embed/1O6uL8A7d6Q"
+                src=https://www.udemy.com/topic/ethical-hacking/
                 allowfullscreen
             ></iframe>
         </section>
 
-        <section>
+        <section class="c">
             <h2>Step 5: Join Ethical Hacking Communities</h2>
             <p>
                 Engage with online forums, attend conferences, and participate
                 in Capture The Flag (CTF) competitions. Networking with other
                 ethical hackers can provide valuable insights and support.
             </p>
-            <iframe
-                src="https://www.youtube.com/embed/3L6YqB0F7b0"
-                allowfullscreen
-            ></iframe>
+            
         </section>
+    </div>
 
-        <footer>
-            <p>&copy; 2024 Learn Ethical Hacking. All Rights Reserved.</p>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>here we share the inspiration and mission behind the Cybersecurity Learning platform.
+
+                        Our journey began with a simple idea: to make cybersecurity education accessible to everyone. We saw a growing need for knowledgeable professionals in the field and wanted to bridge the gap between curiosity and expertise.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="topic1.html">linux</a></li>
+                        <li><a href="topic2.html">Network Security</a></li>
+                        <li><a href="topic3.html">Ethical Hackingy </a></li>
+                        <li><a href="our-story.html">About</a></li>
+
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>Bahrain</li>
+                        <li>Email: BHCrypt@gmail.com</li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 </p>
+            </div>
         </footer>
 
         <!-- Theme Toggle -->

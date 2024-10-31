@@ -5,8 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Linux</title>
-    <!-- External Libraries -->
+    <link  rel="stylesheet" href="./css/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -14,256 +15,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/validator@13.7.0/validator.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-light: #f0f4f8;
-            --text-light: #2d3748;
-            --accent-light: #4299e1;
-            --primary-dark: #000000;
-            --text-dark: #e2e8f0;
-            --accent-dark: #63b3ed;
-            --transition: all 0.3s ease-in-out;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: var(--primary-light);
-            color: var(--text-light);
-            transition: var(--transition);
-            overflow-x: hidden;
-        }
-
-        body.dark-mode {
-            background: var(--primary-dark);
-            color: var(--text-dark);
-        }
-
-        /* Navigation Styles */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: inherit;
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            padding: 0.5rem 1rem;
-            transition: var(--transition);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-light);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            text-align: center;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeUp 1s forwards;
-        }
-
-        @keyframes fadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Registration Form */
-        .registration-form {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-            max-width: 500px;
-            margin: 2rem auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px var(--accent-light);
-        }
-
-        .error-message {
-            color: #e53e3e;
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-        }
-
-        /* Theme Toggle */
-        .theme-toggle {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        /* Particles Background */
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        /* Cards Section */
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 4rem 2rem;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: var(--transition);
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-
-        .card:hover {
-            transform: translateY(-10px) rotateX(10deg);
-        }
-
-        /* Animations */
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .cards-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Loading Animation */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary-light);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        .loader.hidden {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -291,28 +42,68 @@
             <h1 data-aos="fade-up">Linux</h1>
         </div>
     </section>
-    <section>
-        <h2>Step 1: Understand the Basics</h2>
-        <p>Start by familiarizing yourself with the Linux command line and basic commands. This foundational knowledge is essential for more advanced topics.</p>
-        <iframe src=https://youtu.be/cBokz0LTizk?si=0d7fpFKUpWbUp-YI allowfullscreen></iframe>
-    </section>
-    <section>
-        <h2>Step 2: Install Linux</h2>
-        <p>Choose a Linux distribution (like Ubuntu, Fedora, or CentOS) and install it on your machine. You can use a virtual machine or dual-boot alongside your current operating system.</p>
-        <iframe src="https://www.youtube.com/embed/2zS9D2tNqY0" allowfullscreen></iframe>
-    </section>
-    <section>
-        <h2>Step 3: Explore Linux Tutorials</h2>
-        <p>There are many online resources and tutorials available. Websites like Linux Journey, Codecademy, and freeCodeCamp offer great starting points.</p>
-        <iframe src="https://www.youtube.com/embed/OqER2TqCfTs" allowfullscreen></iframe>
-    </section>
-    <section>
-        <h2>Step 4: Join the Community</h2>
-        <p>Join forums, subreddits, and local meetups. Engaging with the community can help you learn faster and get support when you need it.</p>
-        <iframe src="https://www.youtube.com/embed/AtZ6xgD0h3A" allowfullscreen></iframe>
-    </section>
-    <footer>
-        <p>&copy; 2024 Learn Linux. All Rights Reserved.</p>
+
+    <div class="container">
+        <section class="c">
+            <h2>Step 1: Understand the Basics</h2>
+            <p>Start by familiarizing yourself with the Linux command line and basic commands. This foundational knowledge is essential for more advanced topics.</p>
+            <iframe src="https://www.youtube.com/embed/cBokz0LTizk" allowfullscreen></iframe>
+        </section>
+        <section class="c">
+            <h2>Step 2: Install Linux</h2>
+            <p>Choose a Linux distribution (like Ubuntu, Fedora, or CentOS) and install it on your machine. You can use a virtual machine or dual-boot alongside your current operating system.</p>
+            <iframe src="https://www.youtube.com/embed/_BoqSxHTTNs?si=TviD_UdTUba8kU7Y" allowfullscreen></iframe>
+        </section>
+        <section class="c">
+            <h2>Step 3: Explore Linux Tutorials</h2>
+            <p>There are many online resources and tutorials available. Websites like Linux Journey, Codecademy, and freeCodeCamp offer great starting points.</p>
+            <iframe src="https://www.youtube.com/embed/pkZEKIXe3u4?si=FNpSErj81CloUU0z"  allowfullscreen></iframe>
+        </section>
+        <section class="c">
+            <h2>Step 4: Join the Community</h2>
+            <p>Join forums, subreddits, and local meetups. Engaging with the community can help you learn faster and get support when you need it.</p>
+        </section>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>here we share the inspiration and mission behind the Cybersecurity Learning platform.
+
+                    Our journey began with a simple idea: to make cybersecurity education accessible to everyone. We saw a growing need for knowledgeable professionals in the field and wanted to bridge the gap between curiosity and expertise.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="topic1.html">linux</a></li>
+                    <li><a href="topic2.html">Network Security</a></li>
+                    <li><a href="topic3.html">Ethical Hackingy </a></li>
+                    <li><a href="our-story.html">About</a></li>
+
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="footer-links">
+                    <li>Bahrain</li>
+                    <li>Email: BHCrypt@gmail.com</li>
+                </ul>
+            </div>
+            
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 </p>
+        </div>
     </footer>
     <!-- Theme Toggle -->
     <button class="theme-toggle">
