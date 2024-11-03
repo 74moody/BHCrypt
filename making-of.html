@@ -154,31 +154,48 @@
             </div>
         </section>
 
-        <script>
-            // Add interaction for color cards
-            document.querySelectorAll('.color-card').forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    card.style.transform = 'translateY(-10px)';
-                });
+       
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>here we share the inspiration and mission behind the Cybersecurity Learning platform.
 
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'translateY(0)';
-                });
-            });
+                        Our journey began with a simple idea: to make cybersecurity education accessible to everyone. We saw a growing need for knowledgeable professionals in the field and wanted to bridge the gap between curiosity and expertise.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="topic1.html">linux</a></li>
+                        <li><a href="topic2.html">Network Security</a></li>
+                        <li><a href="topic3.html">Ethical Hackingy </a></li>
+                        <li><a href="our-story.html">About</a></li>
 
-            // Add copy functionality for color hex codes
-            document.querySelectorAll('.color-hex').forEach(hex => {
-                hex.addEventListener('click', () => {
-                    navigator.clipboard.writeText(hex.textContent);
-                    const originalText = hex.textContent;
-                    hex.textContent = 'Copied!';
-                    setTimeout(() => {
-                        hex.textContent = originalText;
-                    }, 1000);
-                });
-            });
-        </script>
-
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>Bahrain</li>
+                        <li>Email: BHCrypt@gmail.com</li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 </p>
+            </div>
+        </footer>
         <!-- Theme Toggle -->
         <button class="theme-toggle">
             <i class="fas fa-moon"></i>
