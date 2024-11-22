@@ -40,6 +40,12 @@
                 <a href="topic3.html">Ethical Hacking</a>
                 <a href="making-of.html">Making Of</a>
                 <a href="our-story.html">Our Story</a>
+                <div class="user-menu" id="userMenu">
+                    <span id="userDisplay" class="user-display"></span>
+                    <div class="user-dropdown" id="userDropdown">
+                        <button id="logoutBtn" class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i> Logout </button>
+                    </div>
             </div>
         </nav>
 
@@ -266,5 +272,128 @@
             ease: 'power4.out'
         });
     </script>
+    
+
+    <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            if (userData && userData.firstName) {
+                showWelcomeBanner(userData.firstName);
+                hideRegisterSection();
+            }
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const registrationForm = document.querySelector('.registration-form');
+            const userMenu = document.getElementById('userMenu');
+            const userDisplay = document.getElementById('userDisplay');
+            const userDropdown = document.getElementById('userDropdown');
+            const logoutBtn = document.getElementById('logoutBtn');
+            // Check if user is already registered
+            function checkRegistration() {
+                const userData = JSON.parse(localStorage.getItem('userData'));
+                if (userData && userData.firstName) {
+                    // Hide registration form
+                    if (registrationForm) {
+                        registrationForm.style.display = 'none';
+                    }
+                    // Show user menu
+                    userMenu.style.display = 'block';
+                    userDisplay.textContent = `${userData.firstName}`;
+                    return true;
+                }
+                // Show registration form if user is not registered
+                if (registrationForm) {
+                    registrationForm.style.display = 'block';
+                }
+                userMenu.style.display = 'none';
+                return false;
+            }
+            // Toggle user dropdown
+            userDisplay.addEventListener('click', (e) => {
+                e.stopPropagation();
+                userDropdown.classList.toggle('show');
+            });
+            // Close dropdown when clicking outside
+            document.addEventListener('click', () => {
+                userDropdown.classList.remove('show');
+            });
+            // Logout functionality
+            logoutBtn.addEventListener('click', () => {
+                localStorage.removeItem('userData');
+                showLogoutConfirmation();
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1500);
+            });
+
+            function showLogoutConfirmation() {
+                const confirmation = document.createElement('div');
+                confirmation.className = 'logout-confirmation';
+                confirmation.textContent = 'Successfully logged out!';
+                document.body.appendChild(confirmation);
+                // Force reflow
+                confirmation.offsetHeight;
+                confirmation.classList.add('show');
+                setTimeout(() => {
+                    confirmation.classList.remove('show');
+                    setTimeout(() => {
+                        confirmation.remove();
+                    }, 400);
+                }, 3000);
+            }
+            // Form submission logic
+            const form = document.getElementById('registerForm');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if (validateForm()) {
+                        const userData = {
+                            firstName: document.getElementById('firstName').value,
+                            lastName: document.getElementById('lastName').value,
+                            mobile: document.getElementById('mobile').value,
+                            email: document.getElementById('email').value,
+                            registrationDate: new Date().toISOString()
+                        };
+                        localStorage.setItem('userData', JSON.stringify(userData));
+                        showMessage('success', 'Registration successful!');
+                        showWelcomeBanner(userData.firstName);
+                        checkRegistration(); // Update UI after registration
+                    }
+                });
+            }
+            // Call check registration on page load
+            checkRegistration();
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+            const registrationForm = document.querySelector('.registration-form');
+            const userDisplay = document.getElementById('userDisplay');
+            // Check if user is already registered
+            function checkRegistration() {
+                const userData = JSON.parse(localStorage.getItem('userData'));
+                if (userData && userData.firstName) {
+                    // Hide registration form
+                    if (registrationForm) {
+                        registrationForm.style.display = 'none';
+                    }
+                    // Show user display in nav
+                    userDisplay.style.display = 'inline';
+                    userDisplay.textContent = `Welcome, ${userData.firstName}`;
+                    return true;
+                }
+                // Show registration form if user is not registered
+                if (registrationForm) {
+                    registrationForm.style.display = 'block';
+                }
+                userDisplay.style.display = 'none';
+                return false;
+            }
+            // Call check registration on page load
+            checkRegistration();
+        });
+ 
+    </script>
+
+    
     </body>
 </html>

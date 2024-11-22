@@ -20,17 +20,14 @@
             rel="stylesheet"
         />
 
+        
     </head>
     <body>
-        <!-- Loader -->
         <div class="loader">
             <div class="spinner"></div>
         </div>
-
-        <!-- Particles Background -->
         <div id="particles-js"></div>
 
-        <!-- Navigation -->
         <nav class="navbar">
             <div class="logo">BHCrypt</div>
             <div class="nav-links">
@@ -40,42 +37,140 @@
                 <a href="topic3.html">Ethical Hacking</a>
                 <a href="making-of.html">Making Of</a>
                 <a href="our-story.html">Our Story</a>
+                <div class="user-menu" id="userMenu">
+                    <span id="userDisplay" class="user-display"></span>
+                    <div class="user-dropdown" id="userDropdown">
+                        <button id="logoutBtn" class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i> Logout </button>
+                    </div>
             </div>
         </nav>
 
-        <!-- Hero Section -->
         <section class="hero" id="home">
             <div class="hero-content">
                 <h1 data-aos="fade-up">Our Journey</h1>
+                <br>
+                <h4 data-aos="fade-up" data-aos-delay="200">
+                    Welcome to the Our Story section, where we share the inspiration, journey, and mission behind the Cybersecurity Learning platform,<br> 
+                    dedicated to empowering individuals with essential skills and knowledge for the digital age.
+                 
+                </h4>
+                <br>
+                
                 <p data-aos="fade-up" data-aos-delay="200">
-                    Welcome to the "Our Story" section, where we share the
-                    inspiration and mission behind the Cybersecurity Learning
-                    platform.
+                    BHCrypt has been a journey in building an entire cybersecurity learning platform. We worked on several focus areas of web-development and cyber security education:
                 </p>
-                <p data-aos="fade-up" data-aos-delay="200">
-                    Our journey began with a simple idea: to make cybersecurity
-                    education accessible to everyone. We saw a growing need for
-                    knowledgeable professionals in the field and wanted to
-                    bridge the gap between curiosity and expertise.
-                </p>
-                <p data-aos="fade-up" data-aos-delay="200">
-                    Through collaboration with experts and continuous feedback
-                    from our users, we strive to improve and expand our
-                    offerings, ensuring that learners have the best resources at
-                    their fingertips.
-                </p>
-                <br />
-                <h2>Our Mission</h2>
-                <p>
-                    At Cybersecurity Learning, we believe in empowering
-                    individuals with knowledge. Our goal is to create a
-                    comprehensive platform that offers a variety of resources to
-                    learn about cybersecurity, catering to both beginners and
-                    advanced learners.
-                </p>
+                
             </div>
         </section>
-        <footer class="footer">
+        <div>
+            <h2>Technical Functionality with Educational Content</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Core Development Components:</h3>
+                    <ul>
+                        <li>Implementation of a responsive user interface using fluid grid layouts and CSS media queries</li>
+                        <li>Development of a secure user authentication system</li>
+                        <li>Integration of advanced UI elements</li>
+                        <li>Creation of comprehensive courseware covering Linux, Network Security, and Ethical Hacking</li>
+                        <li>Development of interactive user management features</li>
+                    </ul>
+                </div>
+    
+                <div class="timeline-item">
+                    <h3>Educational Content Structure:</h3>
+                    <ul>
+                        <li>Structured learning paths for different skill levels</li>
+                        <li>Integration of practical exercises and theoretical content</li>
+                        <li>Implementation of progress tracking mechanisms</li>
+                        <li>Resource management system for course materials</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <br>
+    
+            <div class="timeline">
+                <h2>Challenges and Solutions</h2>
+    
+                <div class="timeline-item">
+                    <h3>Performance Optimization</h3>
+                    <p>Managing the balance between rich features and performance presented significant challenges:</p>
+                    <p>Solution: Implemented lazy loading for images and heavy content, optimized particle effects for different device capabilities, utilized code splitting to improve initial load times, implemented caching strategies for frequently accessed content.</p>
+                </div>
+    
+                <div class="timeline-item">
+                    <h3>Authentication System:</h3>
+                    <p>Creating a secure yet user-friendly authentication system required careful consideration:</p>
+                    <p>Implemented client-side validation to reduce server load, developed secure local storage solutions for user data, created robust session management system, balanced security requirements with user experience.</p>
+                </div>
+    
+                <div class="timeline-item">
+                    <h3>Responsive Design Issues</h3>
+                    <p>The initial challenge was ensuring consistent functionality across various devices and screen sizes. This was addressed through:</p>
+                    <p>Refinement of breakpoints in media queries, optimization of content layout for different viewport sizes.</p>
+                </div>
+    
+                <div class="timeline-item">
+                    <h3>Course Material Organization</h3>
+                    <p>Structuring the educational content effectively required:</p>
+                    <p>Development of clear learning pathways, creation of modular content structure, implementation of progressive difficulty levels, integration of practical exercises with theoretical content.</p>
+                </div>
+            </div>
+    
+
+        </div>
+
+        <div class="timeline">
+            <h2>Technical Skills Development</h2>
+            <div class="timeline-item">
+                <h3>Frontend Development:</h3>
+                <p>Gained deep understanding of modern JavaScript frameworks, mastered responsive design principles, improved skills in CSS animation and modern web standards, learned effective state management techniques.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Security Implementation:</h3>
+                <p>Developed understanding of secure authentication practices, learned about protecting user data, gained experience in implementing security best practices, understanding of client-side security considerations.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Time Management:</h3>
+                <p>Learned to prioritize critical features, importance of realistic timeline planning, value of breaking down large tasks into manageable components, understanding of resource allocation.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Content Delivery:</h3>
+                <p>Importance of progressive disclosure, value of interactive elements, significance of clear information architecture, understanding of user learning patterns.</p>
+            </div>
+        </div>
+
+        <br>
+
+        <h2>The development of BHCrypt has provided valuable insights for future web development projects</h2>
+
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <h3>Technical Considerations:</h3>
+                <p>Importance of scalable architecture, value of modular design, necessity of performance optimization, significance of security implementations.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Project Management:</h3>
+                <p>Need for flexible development approach, importance of continuous testing, value of user feedback, significance of documentation.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Educational Content:</h3>
+                <p>Importance of structured learning paths, value of interactive content, necessity of progress tracking, significance of practical application. This project has demonstrated that successful web development requires a balanced approach combining technical expertise, user-centered design, and effective project management.</p>
+            </div>
+        </div>
+
+        <p>The experience gained will be invaluable for future development projects and has established a strong foundation for continuing to improve and expand the platform.</p>
+    
+ <footer class="footer">
+  
             <div class="footer-container">
                 <div class="footer-section">
                     <h3>About Us</h3>
@@ -224,5 +319,126 @@
             ease: 'power4.out'
         });
     </script>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+                const userData = JSON.parse(localStorage.getItem('userData'));
+                if (userData && userData.firstName) {
+                    showWelcomeBanner(userData.firstName);
+                    hideRegisterSection();
+                }
+            });
+            document.addEventListener('DOMContentLoaded', () => {
+                const registrationForm = document.querySelector('.registration-form');
+                const userMenu = document.getElementById('userMenu');
+                const userDisplay = document.getElementById('userDisplay');
+                const userDropdown = document.getElementById('userDropdown');
+                const logoutBtn = document.getElementById('logoutBtn');
+                // Check if user is already registered
+                function checkRegistration() {
+                    const userData = JSON.parse(localStorage.getItem('userData'));
+                    if (userData && userData.firstName) {
+                        // Hide registration form
+                        if (registrationForm) {
+                            registrationForm.style.display = 'none';
+                        }
+                        // Show user menu
+                        userMenu.style.display = 'block';
+                        userDisplay.textContent = `${userData.firstName}`;
+                        return true;
+                    }
+                    // Show registration form if user is not registered
+                    if (registrationForm) {
+                        registrationForm.style.display = 'block';
+                    }
+                    userMenu.style.display = 'none';
+                    return false;
+                }
+                // Toggle user dropdown
+                userDisplay.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    userDropdown.classList.toggle('show');
+                });
+                // Close dropdown when clicking outside
+                document.addEventListener('click', () => {
+                    userDropdown.classList.remove('show');
+                });
+                // Logout functionality
+                logoutBtn.addEventListener('click', () => {
+                    localStorage.removeItem('userData');
+                    showLogoutConfirmation();
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1500);
+                });
+    
+                function showLogoutConfirmation() {
+                    const confirmation = document.createElement('div');
+                    confirmation.className = 'logout-confirmation';
+                    confirmation.textContent = 'Successfully logged out!';
+                    document.body.appendChild(confirmation);
+                    // Force reflow
+                    confirmation.offsetHeight;
+                    confirmation.classList.add('show');
+                    setTimeout(() => {
+                        confirmation.classList.remove('show');
+                        setTimeout(() => {
+                            confirmation.remove();
+                        }, 400);
+                    }, 3000);
+                }
+                // Form submission logic
+                const form = document.getElementById('registerForm');
+                if (form) {
+                    form.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        if (validateForm()) {
+                            const userData = {
+                                firstName: document.getElementById('firstName').value,
+                                lastName: document.getElementById('lastName').value,
+                                mobile: document.getElementById('mobile').value,
+                                email: document.getElementById('email').value,
+                                registrationDate: new Date().toISOString()
+                            };
+                            localStorage.setItem('userData', JSON.stringify(userData));
+                            showMessage('success', 'Registration successful!');
+                            showWelcomeBanner(userData.firstName);
+                            checkRegistration(); // Update UI after registration
+                        }
+                    });
+                }
+                // Call check registration on page load
+                checkRegistration();
+            });
+            document.addEventListener('DOMContentLoaded', () => {
+                const registrationForm = document.querySelector('.registration-form');
+                const userDisplay = document.getElementById('userDisplay');
+                // Check if user is already registered
+                function checkRegistration() {
+                    const userData = JSON.parse(localStorage.getItem('userData'));
+                    if (userData && userData.firstName) {
+                        // Hide registration form
+                        if (registrationForm) {
+                            registrationForm.style.display = 'none';
+                        }
+                        // Show user display in nav
+                        userDisplay.style.display = 'inline';
+                        userDisplay.textContent = `Welcome, ${userData.firstName}`;
+                        return true;
+                    }
+                    // Show registration form if user is not registered
+                    if (registrationForm) {
+                        registrationForm.style.display = 'block';
+                    }
+                    userDisplay.style.display = 'none';
+                    return false;
+                }
+                // Call check registration on page load
+                checkRegistration();
+            });
+     
+        </script>
+    
     </body>
 </html>

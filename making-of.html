@@ -18,6 +18,8 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
             rel="stylesheet"
         />
+
+       
     </head>
 
     <body>
@@ -34,9 +36,14 @@
                 <a href="topic3.html">Ethical Hacking</a>
                 <a href="making-of.html">Making Of</a>
                 <a href="our-story.html">Our Story</a>
+                <div class="user-menu" id="userMenu">
+                    <span id="userDisplay" class="user-display"></span>
+                    <div class="user-dropdown" id="userDropdown">
+                        <button id="logoutBtn" class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i> Logout </button>
+                    </div>
             </div>
         </nav>
-        <!-- Hero Section -->
         <section class="hero" id="home">
             <div class="hero-content">
                 <h1 data-aos="fade-up">Making Of BHCrypt</h1>
@@ -46,21 +53,64 @@
                 </p>
             </div>
         </section>
-        <!-- 
+
     <section>
-        <h2>Mock-ups</h2>
-        <div class="mockups">
+        <h2 style="font-size: 3rem">Mock-ups</h2>
             <div class="mockup">
-                <img src="mockup1.png" alt="Mock-up 1"> 
+                <img src="img/mockup1.png" alt="Mock-up 1"> 
+
+
+                <div class="mockup-description">
+                    <p><strong>Home page </strong> Design of home page of a cybersecurity website that includes navigation bar fixed, logo, links to Linux, Network Security, Ethical Hacking, Making Of and About Us in addition to a personalized name display of registered user. So, the first part is about introducing the website with welcome message to start their journey followed by a simple registration form. Next is the courses section which has an aligned grid of featured cybersecurity courses with an image, brief detail and a respective action link to Learn More about the course. he design maintains consistency across all pages through the navigation bar and footer, which provides essential links into three sections: About Us, Quick Links, and Contact Info. The layout emphasizes responsive design, ensuring smooth functionality across all devices and a professional, user-friendly interface. The color scheme, typography, and interactive elements are carefully chosen to create an engaging learning environment.</p>
+                </div>
             </div>
+            
+            <br>
+
             <div class="mockup">
-                <img src="mockup2.png" alt="Mock-up 2">
+                <img src="img/mockup2.png" alt="Mock-up 2">
+                <div class="mockup-description">
+                    <p><strong>Linux page</strong>
+                        Linux page Using a similar navigation bar and footer structure from home, the Linux learning page combines to create an experiential version of education with extensive content displayed in an orchestrated format. This page follows a clear learning path, starting from the basics of Linux up to more advanced topics with embedded YouTube Medias and some command lines that explain what is going on, and each step detailed too.</p>
+                </div>
             </div>
+
+            <br>
+
             <div class="mockup">
-                <img src="mockup3.png" alt="Mock-up 3">
+                <img src="img/mockup3.png" alt="Mock-up 3">
+                <div class="mockup-description">
+                    <p><strong>Network Security page</strong>
+                        Aligned with the home page, Network Security learning page sustains a uniform navigation bar and footer structure while providing a comprehensive network security educational journey through an orderly layout. It provides a roadmap for structured learning, beginning with the fundamentals of network security and progressing to more advanced security concepts, along with embedded YouTube tutorials.</p>
+                </div>
             </div>
-        </div>
-    </section> -->
+
+            <br>
+
+            <div class="mockup">
+                <img src="img/mockup4.png" alt="Mock-up 4">
+                <div class="mockup-description">
+                    <p><strong>Ethical Hacking page</strong>
+                        The Ethical Hacking learning page retains the same navigation bar and footer as on other pages but serves up an intensive hands-on, professional structured penetration testing curriculum presented in a clean organized manner. This resource is a curated learning path starting from the basics of ethical hacking to advanced exploitation techniques involving handpicked youtube videos.</p>
+                </div>
+            </div>
+            <br>
+            <div class="mockup">
+                <img src="img/mockup5.png" alt="Mock-up 5">
+                <div class="mockup-description">
+                    <p><strong>our story page </strong>
+                        Team Development journey of BHCrypt divided into four sections in Our Story page This first part, Technical Functionality with Education Value, is to how complex and technical basics combined into user-friendly learning materials. The second section, Challenges and Solutions, discusses how the team matured into different technologies and practices. The last part provides some lessons learned during the development of BHCrypt. The page has embedded interactive era, showing the percentage so that it can be used on the site itself.</p>                </div>
+            </div>
+            </div>
+            <br>
+            <div class="mockup">
+                <img src="img/mockup6.png" alt="Mock-up 5">
+                <div class="mockup-description">
+                    <p><strong>Making Of BHCrypt page </strong>The Making of BHCrypt page goes into detail about the design and implementation process. The mock-ups are extensive, and its justification along with how the structure of the code has defined a lot of functionality and usability on the platform. BHCrypt is comprised of both visuals and technical design decisions made with intention in mind, outlined on this page. Each element has been meticulously constructed to provide an effective and compelling platform for cybersecurity learning.</p>
+                                    </div>
+            </div>
+            </div>
+    </section> 
 
         <section class="justification">
             <h2>Design Justifications</h2>
@@ -302,5 +352,130 @@ AOS.init({
             ease: 'power4.out'
         });
     </script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+                    const userData = JSON.parse(localStorage.getItem('userData'));
+                    if (userData && userData.firstName) {
+                        showWelcomeBanner(userData.firstName);
+                        hideRegisterSection();
+                    }
+                });
+                document.addEventListener('DOMContentLoaded', () => {
+                    const registrationForm = document.querySelector('.registration-form');
+                    const userMenu = document.getElementById('userMenu');
+                    const userDisplay = document.getElementById('userDisplay');
+                    const userDropdown = document.getElementById('userDropdown');
+                    const logoutBtn = document.getElementById('logoutBtn');
+                    // Check if user is already registered
+                    function checkRegistration() {
+                        const userData = JSON.parse(localStorage.getItem('userData'));
+                        if (userData && userData.firstName) {
+                            // Hide registration form
+                            if (registrationForm) {
+                                registrationForm.style.display = 'none';
+                            }
+                            // Show user menu
+                            userMenu.style.display = 'block';
+                            userDisplay.textContent = `${userData.firstName}`;
+                            return true;
+                        }
+                        // Show registration form if user is not registered
+                        if (registrationForm) {
+                            registrationForm.style.display = 'block';
+                        }
+                        userMenu.style.display = 'none';
+                        return false;
+                    }
+                    // Toggle user dropdown
+                    userDisplay.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        userDropdown.classList.toggle('show');
+                    });
+                    // Close dropdown when clicking outside
+                    document.addEventListener('click', () => {
+                        userDropdown.classList.remove('show');
+                    });
+                    // Logout functionality
+                    logoutBtn.addEventListener('click', () => {
+                        localStorage.removeItem('userData');
+                        showLogoutConfirmation();
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 1500);
+                    });
+        
+                    function showLogoutConfirmation() {
+                        const confirmation = document.createElement('div');
+                        confirmation.className = 'logout-confirmation';
+                        confirmation.textContent = 'Successfully logged out!';
+                        document.body.appendChild(confirmation);
+                        // Force reflow
+                        confirmation.offsetHeight;
+                        confirmation.classList.add('show');
+                        setTimeout(() => {
+                            confirmation.classList.remove('show');
+                            setTimeout(() => {
+                                confirmation.remove();
+                            }, 400);
+                        }, 3000);
+                    }
+                    // Form submission logic
+                    const form = document.getElementById('registerForm');
+                    if (form) {
+                        form.addEventListener('submit', (e) => {
+                            e.preventDefault();
+                            if (validateForm()) {
+                                const userData = {
+                                    firstName: document.getElementById('firstName').value,
+                                    lastName: document.getElementById('lastName').value,
+                                    mobile: document.getElementById('mobile').value,
+                                    email: document.getElementById('email').value,
+                                    registrationDate: new Date().toISOString()
+                                };
+                                localStorage.setItem('userData', JSON.stringify(userData));
+                                showMessage('success', 'Registration successful!');
+                                showWelcomeBanner(userData.firstName);
+                                checkRegistration(); // Update UI after registration
+                            }
+                        });
+                    }
+                    // Call check registration on page load
+                    checkRegistration();
+                });
+                document.addEventListener('DOMContentLoaded', () => {
+                    const registrationForm = document.querySelector('.registration-form');
+                    const userDisplay = document.getElementById('userDisplay');
+                    // Check if user is already registered
+                    function checkRegistration() {
+                        const userData = JSON.parse(localStorage.getItem('userData'));
+                        if (userData && userData.firstName) {
+                            // Hide registration form
+                            if (registrationForm) {
+                                registrationForm.style.display = 'none';
+                            }
+                            // Show user display in nav
+                            userDisplay.style.display = 'inline';
+                            userDisplay.textContent = `Welcome, ${userData.firstName}`;
+                            return true;
+                        }
+                        // Show registration form if user is not registered
+                        if (registrationForm) {
+                            registrationForm.style.display = 'block';
+                        }
+                        userDisplay.style.display = 'none';
+                        return false;
+                    }
+                    // Call check registration on page load
+                    checkRegistration();
+                });
+         
+            </script>
+        
+
+
+
+
+
     </body>
 </html>
